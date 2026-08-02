@@ -1,27 +1,42 @@
-import os
-import asyncio
 from telegram import Update
-from telegram.ext import Application, CommandHandler, ContextTypes
-from dotenv import load_dotenv
+from telegram.ext import (
+    Application,
+    CommandHandler,
+    ContextTypes,
+)
 
-load_dotenv()
-
+# ==========================
+# TOKEN DO BOT
+# ==========================
 TOKEN = "8944693063:AAEodDqJqcqCvB7NJr17Kte-Jh38Lp3Y43g"
 
+
+# ==========================
+# COMANDO /start
+# ==========================
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "Olá! 👋\n\n"
-        "Sou seu assessor financeiro.\n\n"
-        "Em breve vou ajudar você a controlar receitas, despesas e metas."
+        "Bem-vindo ao Gestor Pessoal.\n\n"
+        "Em breve vou controlar suas receitas, despesas e muito mais."
     )
 
-async def main():
+
+# ==========================
+# FUNÇÃO PRINCIPAL
+# ==========================
+def main():
     app = Application.builder().token(TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
 
-    print("Bot iniciado...")
-    await app.run_polling()
+    print("✅ Gestor Pessoal iniciado!")
 
+    app.run_polling()
+
+
+# ==========================
+# INICIAR BOT
+# ==========================
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
