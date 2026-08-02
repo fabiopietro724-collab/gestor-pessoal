@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-TOKEN = "SEU_TOKEN_AQUI"
+TOKEN = "8944693063:AAEodDqJqcqCvB7NJr17Kte-Jh38Lp3Y43g"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
